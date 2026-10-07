@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   input: {
-    backgroundColor: '#FFF',
+    backgroundColor: '#DDD',
     borderWidth: 1,
     borderColor: '#DDD',
     borderRadius: 10,

@@ -1,34 +1,59 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Home from './src/pages/Home'
 import Sobre from './src/pages/Sobre'
 import Contato from './src/pages/Contato'
 
-const Stack = createNativeStackNavigator()
+import { Feather } from '@expo/vector-icons';
+
+
+
+const Tab = createBottomTabNavigator()
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-        name='Home'
-        component={Home} 
-        options={{
-          headerShown: false
-        }}
-        />
-        <Stack.Screen
-        name='Sobre'
-        component={Sobre} 
+      <Tab.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+      >
+        <Tab.Screen
+          name='Home'
+          component={Home}
+          options={{
+            tabBarLabel: 'INÍCIO',
+            tabBarIcon: (color, size) => {
+              return <Feather name='home' color={color} size={size} />
+            }
+          }}
         />
 
-        <Stack.Screen
-        name='Contato'
-        component={Contato} 
+        <Tab.Screen
+          name='Sobre'
+          component={Sobre}
+          options={{
+            tabBarIcon: (color, size) => {
+              return <Feather name='file-text' color={color} size={size} />
+            }
+         }}
+          
         />
-      </Stack.Navigator>
+
+        <Tab.Screen
+          name='Contato'
+          component={Contato}
+          options={{
+            tabBarIcon: (color, size) => {
+              return <Feather name='phone-call' color={color} size={size} />
+            },
+         }}
+        />
+
+      </Tab.Navigator>
+
     </NavigationContainer>
   )
 }

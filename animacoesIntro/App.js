@@ -9,6 +9,7 @@ export default function App() {
 
 
   useEffect(() => {
+    //animação em sequencia (acontece uma, após a outra)
     Animated.sequence([
       Animated.timing(opacidadeAnimada,{
         toValue: 1,
@@ -16,6 +17,7 @@ export default function App() {
         useNativeDriver: false
       }),
 
+      //animação paralela (Acontece todas simultaneamente)
       Animated.parallel([
         Animated.timing(larguraAnimada, {
           toValue: 300,
